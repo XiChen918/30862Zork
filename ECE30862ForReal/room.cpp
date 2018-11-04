@@ -3,14 +3,10 @@
 //
 
 #include <iostream>
-#include "room.h"
-#include "border.h"
-#include "container.h"
-#include "item.h"
-#include "creature.h"
-#include "trigger.h"
+#include "room.hpp"
 
 using namespace std;
+using namespace rapidxml;
 
 room::room(xml_node<>* root){
     string x,y,z;
@@ -32,18 +28,15 @@ room::room(xml_node<>* root){
                 else if (b->name() == "name") nb->name = b->value();
             }
             Border.push_back(nb);
-        }else if(x == "container"){
-            z = y;
-            Container.push_back(z);
-        }else if(x == "item"){
-            z = y;
-            Item.push_back(z);
-        }else if(x == "creature"){
-            z = y;
-            Creature.push_back(z);
-        }else if(x == "trigger"){
+        }else if(x == "container") Container.push_back(y);
+        else if(x == "item") Item.push_back(y);
+        else if(x == "creature") Creature.push_back(y);
+        else if(x == "trigger"){
             trigger* t = new trigger(branch);
             Trigger.push_back(t);
         }
+
+        branch = branch -> next_sibling();
     }
 }
+
