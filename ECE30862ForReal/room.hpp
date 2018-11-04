@@ -5,11 +5,11 @@
 #include <vector>
 #include <string>
 #include "rapidxml.hpp"
-#include "container.h"
-#include "item.h"
-#include "creature.h"
-#include "trigger.h"
-#include "border.h"
+#include "container.hpp"
+#include "item.hpp"
+#include "creature.hpp"
+#include "trigger.hpp"
+#include "border.hpp"
 
 #ifndef INC_30862ZORK_MASTER_ROOM_H
 #define INC_30862ZORK_MASTER_ROOM_H
