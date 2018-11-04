@@ -5,7 +5,7 @@
 #include <string>
 #include "rapidxml.hpp"
 #include "trigger.hpp"
-#include "attack.hpp"
+#include "Attack.hpp"
 
 #ifndef INC_30862ZORK_MASTER_CREATURE_H
 #define INC_30862ZORK_MASTER_CREATURE_H
@@ -13,17 +13,17 @@
 using namespace rapidxml;
 using namespace std;
 
-class creature{
+class Creature{
 public:
     string name;
     string status;
     string description;
-    vecter<string> Vulnerability;
-    attack* Attack;
-    vector<trigger*> Trigger;
+    vector<string> Vulnerability;
+    Attack* attack;
+    vector<Trigger*> trigger;
 
-    creature(xml_node<>* root);
-    virtual ~creature(){};
+    Creature(xml_node<>* root);
+    virtual ~Creature(){};
 
 };
 

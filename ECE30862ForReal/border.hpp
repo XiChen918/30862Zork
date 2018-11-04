@@ -14,12 +14,12 @@ using namespace std;
 #ifndef BORDER_H_
 #define BORDER_H_
 
-class border{
+class Border{
 public:
     string direction;
     string name;
 
-    border();
-    virtual ~border(){};
+    Border();
+    virtual ~Border(){};
 };
 #endif //INC_30862ZORK_MASTER_BORDER_H

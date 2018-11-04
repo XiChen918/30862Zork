@@ -8,8 +8,8 @@
 using namespace std;
 using namespace rapidxml;
 
-trigger::trigger(xml_node<> * root) {
-    string x,y,;
+Trigger::Trigger(xml_node<> * root) {
+    string x,y;
     this -> type = "single";
     this -> has_action = false;
     this -> has_command = false;
@@ -34,8 +34,8 @@ trigger::trigger(xml_node<> * root) {
                 b = b-> next_sibling();
             }
             this -> condition = i;
-            if(this -> condition == 2) setup1(branch, this -> Status);
-            else if(this -> condition == 3) setup2(branch, this -> Owner);
+            if(this -> condition == 2) setup1(branch, &this -> status);
+            else if(this -> condition == 3) setup2(branch, &this -> owner);
         }else if(x == "print") {
             this -> print = y;
             this -> has_print = true;
@@ -47,7 +47,7 @@ trigger::trigger(xml_node<> * root) {
         branch = branch -> next_sibling();
     }
 }
-void setup1(xml_node<>* root, status* S){
+void setup1(xml_node<>* root, Status* S){
     xml_node<>* branch = root -> first_node();
     string x,y;
 
@@ -62,7 +62,7 @@ void setup1(xml_node<>* root, status* S){
     }
 }
 
-void setup2(xml_node<>* root, owner* O) {
+void setup2(xml_node<>* root, Owner* O) {
     xml_node<> *branch = root->first_node();
     string x, y;
 

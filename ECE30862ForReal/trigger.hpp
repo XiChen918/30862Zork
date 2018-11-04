@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 #include "rapidxml.hpp"
-#include "status.hpp"
-#include "owner.hpp"
 
 #ifndef INC_30862ZORK_MASTER_TRIGGER_HPP
 #define INC_30862ZORK_MASTER_TRIGGER_HPP
@@ -13,7 +11,18 @@
 using namespace rapidxml;
 using namespace std;
 
-class trigger{
+typedef struct _status{
+    string object;
+    string status;
+}Status;
+
+typedef struct _owner{
+    string object;
+    string has;
+    string owner;
+}Owner;
+
+class Trigger{
 public:
     string type;
     string command;
@@ -24,22 +33,14 @@ public:
     vector<string> Action;
     bool has_action;
     int times;
-    status Status;
-    owner Owner;
+    Status status;
+    Owner owner;
 
-    trigger(xml_node<>* );
-    virtual ~trigger(){};
+    Trigger(xml_node<>* );
+    virtual ~Trigger(){};
 };
 
-typedef struct _status{
-    string object;
-    string status;
-}status;
-
-typedef struct _owner{
-    string object;
-    string has;
-    string owner;
-}owner;
+void setup1(xml_node<>* root, Status* S);
+void setup2(xml_node<>* root, Owner* O);
 
 #endif //INC_30862ZORK_MASTER_TRIGGER_HPP

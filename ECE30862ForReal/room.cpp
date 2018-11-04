@@ -8,7 +8,7 @@
 using namespace std;
 using namespace rapidxml;
 
-room::room(xml_node<>* root){
+Room::Room(xml_node<>* root){
     string x,y,z;
     int i = 0;
     xml_node<> * branch = root -> first_node();
@@ -22,18 +22,18 @@ room::room(xml_node<>* root){
         else if(x == "type") this -> type = y;
         else if(x == "description") this -> description = y;
         else if(x == "border") {
-            border *nb = new border();
+            Border *nb = new Border();
             for (xml_node<> *b = branch->first_node(); b; b = b->next_sibling()) {
                 if (b->name() == "direction") nb->direction = b->value();
                 else if (b->name() == "name") nb->name = b->value();
             }
-            Border.push_back(nb);
+            border.push_back(nb);
         }else if(x == "container") Container.push_back(y);
         else if(x == "item") Item.push_back(y);
         else if(x == "creature") Creature.push_back(y);
         else if(x == "trigger"){
-            trigger* t = new trigger(branch);
-            Trigger.push_back(t);
+            Trigger* t = new Trigger(branch);
+            trigger.push_back(t);
         }
 
         branch = branch -> next_sibling();

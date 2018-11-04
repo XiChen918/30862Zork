@@ -5,8 +5,8 @@
 #include <vector>
 #include <string>
 #include "rapidxml.hpp"
-#include "container.hpp"
-#include "item.hpp"
+#include "Container.hpp"
+#include "Item.hpp"
 #include "creature.hpp"
 #include "trigger.hpp"
 #include "border.hpp"
@@ -17,20 +17,20 @@
 using namespace rapidxml;
 using namespace std;
 
-class room{
+class Room{
 public:
     string name;
     string status;
     string type;
     string description;
-    vector<border*> Border;
+    vector<Border*> border;
     vector<string> Container;
     vector<string> Item;
     vector<string> Creature;
-    vector<trigger*> Trigger;
+    vector<Trigger*> trigger;
 
-    room(xml_node<>* root);
-    virtual ~room(){};
+    Room(xml_node<>* root);
+    virtual ~Room(){};
 };
 
 #endif //INC_30862ZORK_MASTER_ROOM_H
