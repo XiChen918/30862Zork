@@ -1,8 +1,13 @@
 //
 // Created by Owner on 11/3/2018.
 //
+#include <iostream>
+#include <sstream>
+#include <fstream>
+#include <cstdlib>
 #include <vector>
 #include <string>
+#include <list>
 #include "rapidxml.hpp"
 #include "trigger.hpp"
 #include "Attack.hpp"
@@ -18,7 +23,7 @@ public:
     string name;
     string status;
     string description;
-    vector<string> Vulnerability;
+    vector<string> vulnerability;
     Attack* attack;
     vector<Trigger*> trigger;
 

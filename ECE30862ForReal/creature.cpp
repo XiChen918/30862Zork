@@ -20,7 +20,7 @@ Creature::Creature(xml_node<> *root) {
         if(x == "name") this -> name = y;
         else if(x == "status") this -> status = y;
         else if(x == "description") this -> description = y;
-        else if(x == "vulnerability") Vulnerability.push_back(y);
+        else if(x == "vulnerability") vulnerability.push_back(y);
         else if(x == "attack") this -> attack  = new Attack(branch);
         else if(x == "trigger"){
             Trigger* t = new Trigger(branch);

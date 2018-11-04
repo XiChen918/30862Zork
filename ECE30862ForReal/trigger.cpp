@@ -40,7 +40,7 @@ Trigger::Trigger(xml_node<> * root) {
             this -> print = y;
             this -> has_print = true;
         }else if(x == "action"){
-            Action.push_back(y);
+            action.push_back(y);
             this -> has_action = true;
         }
 

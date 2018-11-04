@@ -28,9 +28,9 @@ Room::Room(xml_node<>* root){
                 else if (b->name() == "name") nb->name = b->value();
             }
             border.push_back(nb);
-        }else if(x == "container") Container.push_back(y);
-        else if(x == "item") Item.push_back(y);
-        else if(x == "creature") Creature.push_back(y);
+        }else if(x == "container") container.push_back(y);
+        else if(x == "item") item.push_back(y);
+        else if(x == "creature") creature.push_back(y);
         else if(x == "trigger"){
             Trigger* t = new Trigger(branch);
             trigger.push_back(t);

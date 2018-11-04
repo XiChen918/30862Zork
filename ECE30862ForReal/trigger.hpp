@@ -1,9 +1,16 @@
 //
 // Created by Owner on 11/4/2018.
 //
-#include <string>
-#include <vector>
-#include "rapidxml.hpp"
+#include<iostream>
+#include<sstream>
+#include<fstream>
+#include<cstdlib>
+#include<vector>
+#include<string>
+#include<list>
+#include "rapidxml-1.13/rapidxml.hpp"
+#include "rapidxml-1.13/rapidxml_utils.hpp"
+#include "rapidxml-1.13/rapidxml_print.hpp"
 
 #ifndef INC_30862ZORK_MASTER_TRIGGER_HPP
 #define INC_30862ZORK_MASTER_TRIGGER_HPP
@@ -30,7 +37,7 @@ public:
     int condition;
     string print;
     bool has_print;
-    vector<string> Action;
+    vector<string> action;
     bool has_action;
     int times;
     Status status;

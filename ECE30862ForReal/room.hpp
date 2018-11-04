@@ -2,9 +2,16 @@
 // Created by Owner on 11/3/2018.
 //
 
+#include <iostream>
+#include <sstream>
+#include <fstream>
+#include <cstdlib>
 #include <vector>
 #include <string>
-#include "rapidxml.hpp"
+#include <list>
+#include "rapidxml-1.13/rapidxml.hpp"
+#include "rapidxml-1.13/rapidxml_utils.hpp"
+#include "rapidxml-1.13/rapidxml_print.hpp"
 #include "Container.hpp"
 #include "Item.hpp"
 #include "creature.hpp"
@@ -24,9 +31,9 @@ public:
     string type;
     string description;
     vector<Border*> border;
-    vector<string> Container;
-    vector<string> Item;
-    vector<string> Creature;
+    vector<string> container;
+    vector<string> item;
+    vector<string> creature;
     vector<Trigger*> trigger;
 
     Room(xml_node<>* root);
