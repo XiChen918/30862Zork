@@ -34,35 +34,37 @@ public:
         setupAttack(node);
 	}
 	virtual ~Attack(){};
-private:
+
     void setupAttack(xml_node<>* node){
         has_condition = false;
         has_print = false;
         has_action = false;
         
-        for(xml_node<>* kid = node -> first_node();
-            kid; kid = kid -> next_sibling()){
-            if(string(kid->name()) == "condition"){
+		xml_node<>* msg = node->first_node();
+        while(msg){
+            if(string(msg->name()) == "condition"){
                 has_condition = true;
-                for(xml_node<>* kid2 = kid -> first_node();
-                    kid2; kid2 = kid2 -> next_sibling()){
-                    if(string(kid2->name()) == "object"){
-                        condition.object = kid2->value();
+				xml_node<>* msg2 = msg->first_node();
+                while(msg2){
+                    if(string(msg2->name()) == "object"){
+                        condition.object = msg2->value();
                     }
-                    if(string(kid2->name()) == "status"){
-                        condition.status = kid2->value();
+                    if(string(msg2->name()) == "status"){
+                        condition.status = msg2->value();
                     }
+					msg2 = msg2->next_sibling();
                 }
             }
-            if(string(kid->name()) == "print"){
+            if(string(msg->name()) == "print"){
                 has_print = true;
-                print = kid -> value();
+                print = msg-> value();
             }
-            if(string(kid->name()) == "action"){
+            if(string(msg->name()) == "action"){
                 has_action = true;
-                string buffer = kid -> value();
+                string buffer = msg-> value();
                 action.push_back(buffer);
             }
+			msg = msg->next_sibling();
         }
     }
 };
