@@ -16,7 +16,7 @@
 using namespace std;
 using namespace rapidxml;
 
-class Creature{
+/*class Creature{
 public:
     string name;
     string status;
@@ -56,6 +56,19 @@ private:
             }
         }
     }
+protected:
+};*/
+class Creature{
+public:
+    string name;
+    string status;
+    string description;
+    vector<string> vulnerability;
+    Attack* attack;
+    vector<Trigger*> trigger;
+
+    Creature(xml_node<>* root);
+    virtual ~Creature(){};
 
 };
 
