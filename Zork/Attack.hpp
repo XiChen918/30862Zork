@@ -34,7 +34,7 @@ public:
         setupAttack(node);
 	}
 	virtual ~Attack(){};
-private:
+
     void setupAttack(xml_node<>* node){
         has_condition = false;
         has_print = false;
